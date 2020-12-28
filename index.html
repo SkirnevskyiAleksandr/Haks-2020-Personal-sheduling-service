@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal sheduling service</title>
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Description-->
+    <meta name="description" content="personal scheduling service">
+    <meta name="keywords" content="personal scheduling service">
+
+    <!-- Material Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- FullCalendar local -->
+    <link rel="stylesheet" href="./fullcalendar-5.3.2/lib/main.min.css">
+    
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Own Styles -->
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fullcalendarcastom.css">
+    <style>
+        #zatemnenie {
+            /* background: rgba(102, 102, 102, 0.5); */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 2;
+        }
+    
+        #okno {
+            width: 500px;
+            height: 327px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: #fff;
+            padding: 40px 35px 15px 35px;
+            box-shadow: 0 2px 60px 0 rgba(0, 0, 0, 0.37);
+  background-color: #ffffff;
+        }
+    
+        #zatemnenie:target {
+            display: block;
+        }
+    
+        .closert {
+            display: inline-block;
+            border: 1px solid #0000cc;
+            color: #0000cc;
+            padding: 0 12px;
+            margin: 10px;
+            text-decoration: none;
+            background: #f2f2f2;
+            font-size: 14pt;
+            cursor: pointer;
+        }
+    
+        .closert:hover {
+            background-color: #e6e6ff;
+        
+        }
+    </style>
+</head>
+
+<body>
+    <div id="zatemnenie">
+        <div id="okno">
+            <img class="img-exit" id="closePopup" src="./images/exit.svg">
+        
+            <input id="inpTitle" class="addname" placeholder="Добавьте название"></input>
+            <hr>
+            </hr>
+            <input id="inpText" class="adddesc" placeholder="Добавьте описание"></input>
+            <hr>
+            </hr>
+            
+            
+            <div class="time-select">
+                <span id="datePopup" class="date-popup"></span>
+                <input id="timeInputStart" class="timepick" type="time"></input>
+                <input id="timeInputEnd" class="timepick"  type="time"></input>
+                <input id="checkbox" type="checkbox" name="allDay"></input>
+                <label for="allDay" class="allday">Весь день</label>
+            </div>
+            
+        <div class="popupfooter">
+            <span id="popUpDelete" class="pdelete">Удалить</span>
+            <span id="popUpSave" class="psave">Сохранить</span>
+            <span id="popUpAdd" class="padd">Добавить</span>
+        </div>
+            
+            <!-- <button id="closePopup" class="closert">Закрыть окно</button> -->
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="wrapper">
+            
+            <div class="topline">
+                
+                    <span id="today" class="today">Сегодня</span>
+                <div class="gmail">
+                    <span id="authorize_button" class="google-button" style="display: none;">Синхронизировать с Gmail</span>
+                    <span id="signout_button" class="google-button" style="display: none;">Отвязать Gmail</span>
+                    <!-- <span id="gmail" style="display: none;"></span> -->
+                    <img class="img-google" src="./images/gmail.jpg">
+                    
+                </div>
+                <div class="monthcarusel">
+                <img id=prevMonth class="arrowbtn" src="./images/arrowL.svg"></img>
+                <span id="dateCalendar" class="month"></span>
+                <img id=nextMonth class="arrowbtn" src="./images/arrowR.svg"></img>
+            </div>
+            
+            
+        </div>
+
+        <div class="flexContainer mb-3">
+            <div class="calendar-wrapper d-flex">
+                <div class="todo-calendar todo-block w-100">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="popup"></div>
+    </div>
+
+    <script defer src="fullcalendar-5.3.2/lib/main.min.js"></script>
+    <script defer src="fullcalendar-5.3.2/lib/locales/ru.js"></script>
+    <script src="./js/googleaddupdate.js" type="text/javascript"></script>
+    <script defer src="js/app.js"></script>
+        <!-- <script src="js/popUp.js"></script> -->
+
+    <script src="./js/googlecalendar.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    
+</body>
+
+</html>
